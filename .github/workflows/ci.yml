@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+
+jobs:
+  jenkins:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Jenkinsfile
+      uses: jenkinsci/jenkinsfile-runner-github-actions@v1.0
+      with:
+        jenkinsfile: Jenkinsfile
